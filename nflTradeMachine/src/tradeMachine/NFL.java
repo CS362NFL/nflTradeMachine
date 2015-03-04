@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class NFL {
 	
 	ArrayList<Team> teams = new ArrayList<Team>();
+	ArrayList<Player> freeAgents = new ArrayList<Player>();
 	
 	public NFL(){
 		this.teams = teams;
+		this.freeAgents = freeAgents;
 		
 	}
 
@@ -18,6 +20,14 @@ public class NFL {
 	public void setTeams(ArrayList<Team> teams) {
 		this.teams = teams;
 	}
+	public ArrayList<Player> getFreeAgents(){
+		return freeAgents;
+	}
+	
+	public void setFreeAgents(ArrayList<Player> freeAgents){
+		this.freeAgents = freeAgents;
+	}
+	
 	
 	public boolean addTeam(String id, String name){
 		return false;
