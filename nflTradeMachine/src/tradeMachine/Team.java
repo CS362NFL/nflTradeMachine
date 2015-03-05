@@ -2,6 +2,8 @@ package tradeMachine;
 
 import java.util.ArrayList;
 
+
+
 /**
  * Team class representing a team in the NFL.
  * 
@@ -14,6 +16,8 @@ public class Team {
 	private String id;
 	private int freeCapSpace;
 
+	protected Team(){}
+	
 	/**
 	 * Constructor to create a Team instance.
 	 */

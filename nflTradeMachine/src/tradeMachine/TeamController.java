@@ -11,6 +11,26 @@ public class TeamController {
 	
 	/**
 	 * 
+	 * Method to get the Free Cap space of this Team
+	 * 
+	 * @return The Free Cap space of this Team
+	 */
+	public int getFreeCapSpace() {
+		return this.getTeamInstance().getFreeCapSpace();
+	}
+	
+	/**
+	 * 
+	 * Method to sset the Free Cap space of this Team
+	 * 
+	 * @param freeCapSpace The new Free Cap space of this Team
+	 */
+	public void setFreeCapSpace(int freeCapSpace) {
+		this.getTeamInstance().setFreeCapSpace(freeCapSpace);
+	}
+	
+	/**
+	 * 
 	 * Method to get a list of all players on this Team
 	 * 
 	 * @return A list of players on this Team
@@ -92,12 +112,11 @@ public class TeamController {
 	 * 
 	 * Method to add a player to this Team
 	 * 
-	 * @param id The ID of the player to add
-	 * @param name The name of the player to add
+	 * @param player The Player to add
 	 * @return Whether the operation was successful
 	 */
-	public boolean addPlayer(String id, String name){
-		return this.getTeamInstance().addPlayer(id, name);
+	public boolean addPlayer(Player player){
+		return this.getTeamInstance().addPlayer(player);
 	}
 	
 	/**

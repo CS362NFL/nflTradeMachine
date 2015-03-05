@@ -18,7 +18,6 @@ public class NFLController {
 	public ArrayList<Team> getTeams() {
 		return this.getNFLInstance().getTeams();
 	}
-
 	
 	/**
 	 * 
@@ -30,37 +29,16 @@ public class NFLController {
 		this.getNFLInstance().setTeams(teams);
 	}
 	
-	/**
-	 * 
-	 * Method to get a list of all players marked as Free Agents
-	 * 
-	 * @return The list of Free Agents
-	 */
-	public ArrayList<Player> getFreeAgents(){
-		return this.getNFLInstance().getFreeAgents();
-	}
-	
-	/**
-	 * 
-	 * Method to set a given list of players as Free Agents
-	 * 
-	 * @param freeAgents The players to mark as Free Agents
-	 */
-	public void setFreeAgents(ArrayList<Player> freeAgents){
-		this.getNFLInstance().setFreeAgents(freeAgents);
-	}
-	
 	
 	/**
 	 * 
 	 * Method to add a new team to the NFL 
 	 * 
-	 * @param id The team's new ID
-	 * @param name The team's name
+	 * @param team The Team to add
 	 * @return Whether the operation succeeded or not
 	 */
-	public boolean addTeam(String id, String name){
-		return this.getNFLInstance().addTeam(id, name);
+	public boolean addTeam(Team team){
+		return this.getNFLInstance().addTeam(team);
 		
 	}
 	
@@ -68,12 +46,11 @@ public class NFLController {
 	 * 
 	 * Method to add a player to the NFL
 	 * 
-	 * @param ids The players new ID
-	 * @param names The players name
+	 * @param playersToAdd The Players to Add to the NFL
 	 * @return Whether the operation succeeded or not
 	 */
-	public boolean addPlayers(ArrayList<String> ids, ArrayList<String> names){
-		return this.getNFLInstance().addPlayers(ids, names);
+	public boolean addPlayers(ArrayList<Player> playersToAdd){
+		return this.getNFLInstance().addPlayers(playersToAdd);
 		
 	}
 	
@@ -81,12 +58,12 @@ public class NFLController {
 	 * 
 	 * Method to set the salary cap hit of the player with the given id
 	 * 
-	 * @param id The players ID
+	 * @param team The Team to set the cap of
 	 * @param cap The cap hit of the Player
 	 * @return Whether the operation succeeded or not
 	 */
-	public boolean setCap(String id, Integer cap){
-		return this.getNFLInstance().setCap(id, cap);
+	public boolean setCap(Team team, Integer cap){
+		return this.getNFLInstance().setCap(team, cap);
 		
 	}
 	
@@ -98,6 +75,27 @@ public class NFLController {
 	 */
 	public ArrayList<Player> getPlayers(){
 		return this.getNFLInstance().getPlayers();
+	}
+	
+	/**
+	 * 
+	 * Method to set the Players of this instance of Team
+	 * 
+	 * @param players The Players to set to this Team
+	 */
+	public void setPlayers(ArrayList<Player> players){
+		this.getNFLInstance().setPlayers(players);
+	}
+	
+	/**
+	 * 
+	 * Method to get the name of the given Team
+	 * 
+	 * @param team The Team to get the name of
+	 * @return The name of the given Team
+	 */
+	public String getName(Team team){
+		return this.getNFLInstance().getName(team);
 	}
 	
 	/**

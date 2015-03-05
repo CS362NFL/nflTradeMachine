@@ -13,7 +13,7 @@ public class PlayerController {
 	 * 
 	 * @return The ID of the Player
 	 */
-	public int getId() {
+	public String getId() {
 		return this.getPlayerInstance().getId();
 	}
 
@@ -23,7 +23,7 @@ public class PlayerController {
 	 * 
 	 * @param id The new ID of the Player
 	 */
-	public void setId(int id) {
+	public void setId(String id) {
 		this.getPlayerInstance().setId(id);
 	}
 
