@@ -12,6 +12,10 @@ public class NFL {
 	private ArrayList<Team> teams = new ArrayList<Team>();
 	private ArrayList<Player> players = new ArrayList<Player>();
 
+	protected NFL(){
+		
+	}
+	
 	/**
 	 * Constructor to create NFL instance
 	 * 
