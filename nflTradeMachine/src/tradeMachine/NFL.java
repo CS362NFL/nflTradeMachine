@@ -22,6 +22,10 @@ public class NFL {
 
 	}
 	
+	/**
+	 * Constructor to convert an NFLData class into an NFL
+	 * @param nfl
+	 */
 	protected NFL(NFLData nfl) {
 		for(NFLData.TeamData t: nfl.teams) {
 			this.teams.add(new Team(t));

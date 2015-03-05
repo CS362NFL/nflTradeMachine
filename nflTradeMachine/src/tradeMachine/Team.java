@@ -27,12 +27,9 @@ public class Team {
 	}
 
 	/**
-	 * @return the free cap space a team has as an integer.
+	 * Constructor to convert TeamData class into a Team
+	 * @param team
 	 */
-	public int getFreeCapSpace() {
-		return freeCapSpace;
-	}
-	
 	protected Team(NFLData.TeamData team) {
 		for(NFLData.TeamData.PlayerData p: team.players) {
 			this.players.add(new Player(p));
@@ -41,6 +38,13 @@ public class Team {
 		this.id = team.name;
 	}
 
+	/**
+	 * @return the free cap space a team has as an integer.
+	 */
+	public int getFreeCapSpace() {
+		return freeCapSpace;
+	}
+	
 	/**
 	 * Sets the free cap space for a team
 	 * 
