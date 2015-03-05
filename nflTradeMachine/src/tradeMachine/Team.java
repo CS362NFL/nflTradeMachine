@@ -17,7 +17,8 @@ public class Team {
 	/**
 	 * Constructor to create a Team instance.
 	 */
-	public Team(ArrayList<Player> players, int salaryCap, String name, String id, int freeCapSpace) {
+	public Team(ArrayList<Player> players, int salaryCap, String name,
+			String id, int freeCapSpace) {
 		this.players = players;
 		this.salaryCap = salaryCap;
 		this.name = name;
@@ -132,19 +133,12 @@ public class Team {
 	}
 
 	/**
-	 * Gets the number of players on the team
+	 * Gets the number of players on the team - the id of the team as a string
 	 * 
-	 * @param teamID
-	 *            - the id of the team as a string
 	 * @return the number of players on the team, null if team does not exist.
 	 */
 	public int getNumberOfPlayers(String teamID) {
-		if (teamID == id) {
-			return players.size();
-		}
-
-		else
-			return (Integer) null;
+		return players.size();
 	}
 
 	public Player getPlayer(String playerID) {
