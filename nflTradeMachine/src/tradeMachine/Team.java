@@ -32,6 +32,14 @@ public class Team {
 	public int getFreeCapSpace() {
 		return freeCapSpace;
 	}
+	
+	protected Team(NFLData.TeamData team) {
+		for(NFLData.TeamData.PlayerData p: team.players) {
+			this.players.add(new Player(p));
+		}
+		this.name = team.name;
+		this.id = team.name;
+	}
 
 	/**
 	 * Sets the free cap space for a team

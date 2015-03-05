@@ -21,6 +21,12 @@ public class NFL {
 		this.players = players;
 
 	}
+	
+	protected NFL(NFLData nfl) {
+		for(NFLData.TeamData t: nfl.teams) {
+			this.teams.add(new Team(t));
+		}
+	}
 
 	/**
 	 * @return the teams as an array list.
