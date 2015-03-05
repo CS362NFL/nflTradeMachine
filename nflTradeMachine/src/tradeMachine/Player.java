@@ -1,7 +1,7 @@
 package tradeMachine;
 
 public class Player {
-	private int id;
+	private String id;
 	private String posistion;
 	private String name;
 	
@@ -12,12 +12,12 @@ public class Player {
 		this.name = name;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
