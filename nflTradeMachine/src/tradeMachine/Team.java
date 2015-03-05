@@ -17,7 +17,7 @@ public class Team {
 	/**
 	 * Constructor to create a Team instance.
 	 */
-	public Team() {
+	public Team(ArrayList<Player> players, int salaryCap, String name, String id, int freeCapSpace) {
 		this.players = players;
 		this.salaryCap = salaryCap;
 		this.name = name;

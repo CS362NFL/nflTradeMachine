@@ -9,14 +9,14 @@ import java.util.ArrayList;
  */
 public class NFL {
 
-	ArrayList<Team> teams = new ArrayList<Team>();
-	ArrayList<Player> players = new ArrayList<Player>();
+	private ArrayList<Team> teams = new ArrayList<Team>();
+	private ArrayList<Player> players = new ArrayList<Player>();
 
 	/**
 	 * Constructor to create NFL instance
 	 * 
 	 */
-	public NFL() {
+	public NFL(ArrayList<Team> teams, ArrayList<Player> players) {
 		this.teams = teams;
 		this.players = players;
 
