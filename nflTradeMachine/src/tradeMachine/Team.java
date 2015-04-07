@@ -165,5 +165,67 @@ public class Team {
 
 		return (Player) null;
 	}
+	
+	/**
+	 * Get the player name from the given player.
+	 * 
+	 * @param playerid - Id of the player
+	 * @return The player name (String)
+	 */
+	public String getPlayerName(String playerid){
+		return getPlayer(playerid).getName();
+	}
+	
+	/**
+	 * Get the player position from the given player.
+	 * 
+	 * @param playerid
+	 * @return The player position (String)
+	 */
+	public String getPlayerPosition(String playerid){
+		return getPlayer(playerid).getPosition();
+	}
+	
+	/**
+	 * Get the total money from the given player.
+	 * 
+	 * @param playerid - Id of the player
+	 * @return
+	 */
+	public Integer getPlayerTotalMoney(String playerid){
+		return getPlayer(playerid).getTotalMoney();
+	}
+	
+	/**
+	 * Get the average cap hit of the given player
+	 * 
+	 * @param playerid - Id of the given player
+	 * @return The average cap hit of the player (Integer)
+	 */
+	public Integer getPlayerAverageCapHit(String playerid){
+		return getPlayer(playerid).getAverageCapHit();
+	}
+	
+	/**
+	 * Extends the players contract by extending the years, and salary of the given player
+	 * 
+	 * @param playerid - Id of the player to extend
+	 * @param years - The amount of years to extend the player
+	 * @param salary - The amount of money to give to the extended player
+	 * @return True of the operation was a success, false otherwise
+	 */
+	public boolean extendPlayerContract(String playerid, int years, int salary){
+		Player player = getPlayer(playerid);
+		Integer playerSalary = player.getTotalMoney();
+		Integer playerYears = player.getYears();
+		if(salary < 0 || years < 0)return false;
+		Integer newTotalMoney = playerSalary + salary;
+		Integer newYears = playerYears + years;
+		player.setTotalMoney(newTotalMoney);
+		player.setYears(newYears);
+		player.setAverageCapHit(newTotalMoney/newYears);
+		return true;
+		
+	}
 
 }
