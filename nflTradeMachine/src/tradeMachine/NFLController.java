@@ -1,5 +1,6 @@
 package tradeMachine;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class NFLController {
@@ -28,14 +29,14 @@ public class NFLController {
 	public void setTeams(ArrayList<Team> teams) {
 		this.getNFLInstance().setTeams(teams);
 	}
-	
-	
+
+
 	/**
-	 * 
-	 * Method to add a new team to the NFL 
-	 * 
-	 * @param team The Team to add
-	 * @return Whether the operation succeeded or not
+	 * Method to create a team in the NFL
+	 * @param salaryCap The salary cap of the team
+	 * @param name The name of the team
+	 * @param id The id of the team
+	 * @return
 	 */
 	public boolean createTeam(Integer salaryCap, String name, String id){
 		return this.getNFLInstance().createTeam(salaryCap, name, id);
@@ -49,7 +50,7 @@ public class NFLController {
 	 * @param id The players ID
 	 * @return Whether the operation was successful
 	 */
-	public boolean addPlayers(String name, String position, String id){
+	public boolean createPlayer(String name, String position, String id){
 		return this.getNFLInstance().createPlayer(name, position, id);
 		
 	}
@@ -58,12 +59,12 @@ public class NFLController {
 	 * 
 	 * Method to set the salary cap hit of the player with the given id
 	 * 
-	 * @param team The Team to set the cap of
+	 * @param teamId The ID of the Team to set the cap of
 	 * @param cap The cap hit of the Player
 	 * @return Whether the operation succeeded or not
 	 */
-	public boolean setCap(Team team, Integer cap){
-		return this.getNFLInstance().setCap(team, cap);
+	public boolean setCap(String teamId, Integer cap) {
+		return this.getNFLInstance().setCap(teamId, cap);
 		
 	}
 	

@@ -1,5 +1,6 @@
 package tradeMachine;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -67,11 +68,11 @@ public class NFL {
 	}
 
 	/**
-	 * Adds a team to the NFLs list of teams.
-	 * 
-	 * @param team
-	 *            - the team to add to the list
-	 * @return true if the team was successfully added, false otherwise.
+	 * Creates a team
+	 * @param salaryCap The salary cap of the team
+	 * @param name The name of the team
+	 * @param id The id of the team
+	 * @return Whether or not the operation succeeded
 	 */
 	public boolean createTeam(Integer salaryCap, String name, String id) {
 		Team team = new Team(new ArrayList<Player>(), salaryCap, name, id);
@@ -99,13 +100,14 @@ public class NFL {
 	/**
 	 * Sets the salaryCap for an NFL team
 	 * 
-	 * @param team
-	 *            - The team to set the salary cap
+	 * @param teamId The team ID to set the salary cap
 	 * @param cap
 	 *            - the amount of money the cap will be set to
 	 * @return - true if the salary cap was successfully set, false otherwise.
 	 */
-	public boolean setCap(Team team, Integer cap) {
+	public boolean setCap(String teamId, Integer cap)  {
+		DatabaseSupport db = new DatabaseSupport();
+		Team team = db.getTeam(teamId);
 		if (cap < 0 || cap > team.getSalaryCap()) {
 			return false;
 		}
