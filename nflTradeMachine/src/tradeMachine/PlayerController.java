@@ -67,6 +67,66 @@ public class PlayerController {
 		this.getPlayerInstance().setName(name);
 	}
 	
+	/**
+	 * 
+	 * Method to get the Years of this instance of Player
+	 * 
+	 * @return The Years of the Player
+	 */
+	public String getYears() {
+		return this.getPlayerInstance().getId();
+	}
+
+	/**
+	 * 
+	 * Method to set the Years of this instance of Player
+	 * 
+	 * @param id The new Years of the Player
+	 */
+	public void setYears(String id) {
+		this.getPlayerInstance().setId(id);
+	}
+	
+	/**
+	 * 
+	 * Method to get the TotalMoney of this instance of Player
+	 * 
+	 * @return The TotalMoney of the Player
+	 */
+	public String getTotalMoney() {
+		return this.getPlayerInstance().getId();
+	}
+
+	/**
+	 * 
+	 * Method to set the TotalMoney of this instance of Player
+	 * 
+	 * @param id The new TotalMoney of the Player
+	 */
+	public void setTotalMoney(String id) {
+		this.getPlayerInstance().setId(id);
+	}
+	
+	/**
+	 * 
+	 * Method to get the AverageCapHit of this instance of Player
+	 * 
+	 * @return The AverageCapHit of the Player
+	 */
+	public String getAverageCapHit() {
+		return this.getPlayerInstance().getId();
+	}
+
+	/**
+	 * 
+	 * Method to set the AverageCapHit of this instance of Player
+	 * 
+	 * @param id The new AverageCapHit of the Player
+	 */
+	public void setAverageCapHit(String id) {
+		this.getPlayerInstance().setId(id);
+	}
+	
 	
 	/**
 	 * 
