@@ -118,7 +118,64 @@ public class TeamController {
 	public boolean addPlayer(Player player){
 		return this.getTeamInstance().addPlayer(player);
 	}
-	
+
+
+	/**
+	 * Method to get the name of a player
+	 * @param playerID The ID of the player to get the name of
+	 * @return The name of the player
+	 */
+	private String getPlayerName(String playerID) {
+		return this.getTeamInstance().getPlayerName(playerID);
+	}
+
+	/**
+	 * Method to get the players position
+	 * @param playerID The ID of the player to ge the position for
+	 * @return The position of the player
+	 */
+	private String getPlayerPosition(String playerID) {
+		return this.getTeamInstance().getPlayerPosition(playerID);
+	}
+
+	/**
+	 * Method to get the years left on a players contract
+	 * @param playerID The ID of the player to get the years for
+	 * @return The number of years left on the players contract
+	 */
+	private Integer getPlayerYears(String playerID) {
+		return this.getTeamInstance().getPlayerYears(playerID);
+	}
+
+	/**
+	 * Method to get the total money of a players contract
+	 * @param playerID The ID of the player to get the total money for
+	 * @return The total money for the player
+	 */
+	private Integer getPlayerTotalMoney(String playerID) {
+		return this.getTeamInstance().getPlayerTotalMoney(playerID);
+	}
+
+	/**
+	 * Method to get the average cap hit of a player
+	 * @param playerID The ID of the player to get the average cap hit for
+	 * @return The average cap hit
+	 */
+	private Integer getPlayerAverageCapHit(String playerID) {
+		return this.getTeamInstance().getPlayerAverageCapHit(playerID);
+	}
+
+	/**
+	 * Method to extend the contract of a player
+	 * @param playerID The id of the player to extend
+	 * @param years The years to add to the players contract
+	 * @param salary The money to add to the players contract
+	 * @return Whether or not the operation was successful
+	 */
+	private Boolean extendPlayerContract(String playerID, Integer years, Integer salary) {
+		return this.getTeamInstance().extendPlayerContract(playerID, years, salary);
+	}
+
 	/**
 	 * 
 	 * Method to define one instance of the class Team to use in calling Team methods
@@ -129,4 +186,5 @@ public class TeamController {
 		if(team == null) team = new Team();
 		return team;
 	}
+
 }
