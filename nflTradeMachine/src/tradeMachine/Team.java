@@ -2,8 +2,6 @@ package tradeMachine;
 
 import java.util.ArrayList;
 
-
-
 /**
  * Team class representing a team in the NFL.
  * 
@@ -16,13 +14,14 @@ public class Team {
 	private String id;
 	private Integer freeCapSpace;
 
-	protected Team(){}
-	
+	protected Team() {
+	}
+
 	/**
 	 * Constructor to create a Team instance.
 	 */
 	public Team(ArrayList<Player> players, Integer salaryCap, String name,
-			String id, Integer freeCapSpace) {
+			String id) {
 		this.players = players;
 		this.salaryCap = salaryCap;
 		this.name = name;
@@ -31,10 +30,11 @@ public class Team {
 
 	/**
 	 * Constructor to convert TeamData class into a Team
+	 * 
 	 * @param team
 	 */
 	protected Team(NFLData.TeamData team) {
-		for(NFLData.TeamData.PlayerData p: team.players) {
+		for (NFLData.TeamData.PlayerData p : team.players) {
 			this.players.add(new Player(p));
 		}
 		this.name = team.name;
@@ -47,7 +47,7 @@ public class Team {
 	public int getFreeCapSpace() {
 		return freeCapSpace;
 	}
-	
+
 	/**
 	 * Sets the free cap space for a team
 	 * 
