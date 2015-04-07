@@ -41,16 +41,16 @@ public class NFLController {
 		return this.getNFLInstance().createTeam(salaryCap, name, id);
 		
 	}
-	
+
 	/**
-	 * 
 	 * Method to add a player to the NFL
-	 * 
-	 * @param playersToAdd The Players to Add to the NFL
-	 * @return Whether the operation succeeded or not
+	 * @param name The players name
+	 * @param position The players position
+	 * @param id The players ID
+	 * @return Whether the operation was successful
 	 */
-	public boolean addPlayers(ArrayList<Player> playersToAdd){
-		return this.getNFLInstance().addPlayers(playersToAdd);
+	public boolean addPlayers(String name, String position, String id){
+		return this.getNFLInstance().createPlayer(name, position, id);
 		
 	}
 	

@@ -84,25 +84,14 @@ public class NFL {
 
 	}
 
-	/**
-	 * Adds a list of players to the NFL players list.
-	 * 
-	 * @param playersToAdd
-	 *            - The list of players to add.
-	 * @return true if the list of players was successfully added, false
-	 *         otherwise.
-	 */
-	public boolean addPlayers(ArrayList<Player> playersToAdd) {
 
+	public boolean createPlayer(String name, String position, String id) {
 		ArrayList<String> playerIDs = getPlayerIDs(players);
-
-		for (int i = 0; i < playersToAdd.size(); i++) {
-			if (playerIDs.contains(players.get(i).getId())) {
-				return false;
-			}
+		if(playerIDs.contains(id)) {
+			return false;
 		}
-
-		players.addAll(playersToAdd);
+		Player player = new Player(id, position, name);
+		players.add(player);
 		return true;
 
 	}
