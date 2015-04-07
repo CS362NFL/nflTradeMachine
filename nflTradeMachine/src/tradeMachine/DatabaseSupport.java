@@ -15,8 +15,14 @@ public class DatabaseSupport {
 	 * Turns nfl.json file into an NFL class with Teams and Players
 	 * @throws FileNotFoundException
 	 */
-	public DatabaseSupport() throws FileNotFoundException {
-		String file = new Scanner(new File("nflTradeMachine/src/tradeMachine/nfl.json")).useDelimiter("\\Z").next();
+	public DatabaseSupport() {
+		String file = "";
+		try {
+			file = new Scanner(new File("nflTradeMachine/src/tradeMachine/nfl.json")).useDelimiter("\\Z").next();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		NFLData nfldata = gson.fromJson(file, NFLData.class);
 		nfl = new NFL(nfldata);
 	}
@@ -65,7 +71,7 @@ public class DatabaseSupport {
 	public boolean putPlayer(Player p) {
 		ArrayList<Player> toAdd = new ArrayList<Player>();
 		toAdd.add(p);
-		return nfl.addPlayers(toAdd);
+		return nfl.createPlayer(p.getName(), p.getPosition(), p.getId());
 	}
 	
 	/**
