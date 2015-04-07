@@ -46,6 +46,11 @@ public class DatabaseSupport {
 		return allPlayers;
 	}
 	
+	/**
+	 * 
+	 * @param id id of team to get
+	 * @return Team
+	 */
 	public Team getTeam(String id) {
 		for(Team t: nfl.getTeams()) {
 			if(t.getId().equals(id))
@@ -55,6 +60,10 @@ public class DatabaseSupport {
 		return null;
 	}
 	
+	/**
+	 * @param id id of player to get
+	 * @return Player
+	 */
 	public Player getPlayer(String id) {
 		for(Player p: nfl.getPlayers()) {
 			if(p.getId().equals(id))
