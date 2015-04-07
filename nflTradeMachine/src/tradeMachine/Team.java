@@ -11,23 +11,22 @@ import java.util.ArrayList;
  */
 public class Team {
 	private ArrayList<Player> players = new ArrayList<Player>();
-	private int salaryCap;
+	private Integer salaryCap;
 	private String name;
 	private String id;
-	private int freeCapSpace;
+	private Integer freeCapSpace;
 
 	protected Team(){}
 	
 	/**
 	 * Constructor to create a Team instance.
 	 */
-	public Team(ArrayList<Player> players, int salaryCap, String name,
-			String id, int freeCapSpace) {
+	public Team(ArrayList<Player> players, Integer salaryCap, String name,
+			String id, Integer freeCapSpace) {
 		this.players = players;
 		this.salaryCap = salaryCap;
 		this.name = name;
 		this.id = id;
-		this.freeCapSpace = freeCapSpace;
 	}
 
 	/**
