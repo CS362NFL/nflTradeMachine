@@ -187,6 +187,16 @@ public class Team {
 	}
 	
 	/**
+	 * Get the years of the given player
+	 * 
+	 * @param playerid - id of the given player
+	 * @return The years the player has on the team (Integer)
+	 */
+	public Integer getPlayerYears(String playerid){
+		return getPlayer(playerid).getYears();
+	}
+	
+	/**
 	 * Get the total money from the given player.
 	 * 
 	 * @param playerid - Id of the player
