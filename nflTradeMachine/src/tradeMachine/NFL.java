@@ -73,7 +73,8 @@ public class NFL {
 	 *            - the team to add to the list
 	 * @return true if the team was successfully added, false otherwise.
 	 */
-	public boolean addTeam(Team team) {
+	public boolean createTeam(Integer salaryCap, String name, String id) {
+		Team team = new Team(new ArrayList<Player>(), salaryCap, name, id);
 		if (teams.contains(team)) {
 			return false;
 		} else {

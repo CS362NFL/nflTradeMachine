@@ -40,11 +40,29 @@ public class DatabaseSupport {
 		return allPlayers;
 	}
 	
+	public Team getTeam(String id) {
+		for(Team t: nfl.getTeams()) {
+			if(t.getId().equals(id))
+				return t;
+		}
+		
+		return null;
+	}
+	
+	public Player getPlayer(String id) {
+		for(Player p: nfl.getPlayers()) {
+			if(p.getId().equals(id))
+				return p;
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * @param p Player to add to database
 	 * @return true if add was successful, false otherwise
 	 */
-	public boolean putPlayers(Player p) {
+	public boolean putPlayer(Player p) {
 		ArrayList<Player> toAdd = new ArrayList<Player>();
 		toAdd.add(p);
 		return nfl.addPlayers(toAdd);
@@ -55,31 +73,7 @@ public class DatabaseSupport {
 	 * @return true if add was successful, false otherwise
 	 */
 	public boolean putTeam(Team t) {
-		return nfl.addTeam(t);
-	}
-	
-	/**
-	 * @param t Team to set into the database
-	 * @return true if successfully put
-	 */
-	public boolean putCap(Team t) {
-		ArrayList<Team> currentTeams = getTeams();
-		for(int i=0; i < currentTeams.size(); i++) {
-			if(currentTeams.get(i).getName().equals(t.getName())) {
-				currentTeams.set(i, t);
-			}
-		}
-		
-		nfl.setTeams(currentTeams);
-		return true;
-	}
-	
-	/**
-	 * @param t Team to get name of
-	 * @return String representing team name
-	 */
-	public String getTeamName(Team t) {
-		return t.getName();
+		return nfl.createTeam(t.getSalaryCap(), t.getName(), t.getId());
 	}
 	
 }

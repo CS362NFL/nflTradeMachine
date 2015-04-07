@@ -37,8 +37,8 @@ public class NFLController {
 	 * @param team The Team to add
 	 * @return Whether the operation succeeded or not
 	 */
-	public boolean addTeam(Team team){
-		return this.getNFLInstance().addTeam(team);
+	public boolean createTeam(Integer salaryCap, String name, String id){
+		return this.getNFLInstance().createTeam(salaryCap, name, id);
 		
 	}
 	
