@@ -4,72 +4,71 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NFLManager {
-	public DatabaseSupport database;
-	public ArrayList<Team> teams = new ArrayList<Team>();
-	public ArrayList<Player> players = new ArrayList<Player>();
+    public DatabaseSupport database;
+    public ArrayList<Team> teams = new ArrayList<Team>();
+    public ArrayList<Player> players = new ArrayList<Player>();
     private final Integer MAXIMUM_CAP = new Integer(143280000);
-	
-	public NFLManager() {
-		this.database = new DatabaseSupport();
-	}
-	
-	/**
-	 * Creates a team
-     * @param name The name of the team
-	 * @param salaryCap The salary cap of the team
-	 * @return Whether or not the operation succeeded
-	 */
-	public boolean createTeam(String name, Integer salaryCap) {
-		Team team = new Team(name, salaryCap);
-		if (teams.contains(team)) {
-			return false;
-		} else {
-			teams.add(team);
-			return true;
-		}
 
-	}
+    public NFLManager() {
+        this.database = new DatabaseSupport();
+    }
+
+    /**
+     * Creates a team
+     *
+     * @param name      The name of the team
+     * @param salaryCap The salary cap of the team
+     * @return Whether or not the operation succeeded
+     */
+    public boolean createTeam(String name, Integer salaryCap) {
+        Team team = new Team(name, salaryCap);
+        if (teams.contains(team)) {
+            return false;
+        } else {
+            teams.add(team);
+            return true;
+        }
+
+    }
 
 
-	public boolean createPlayer(String name, String position) {
-		players.add(new Player(name, position));
-		return true;
+    public boolean createPlayer(String name, String position) {
+        players.add(new Player(name, position));
+        return true;
 
-	}
+    }
 
-	/**
-	 * Sets the salaryCap for an NFL team
-	 * 
-	 * @param teamID The team ID to set the salary cap
-	 * @param cap
-	 *            - the amount of money the cap will be set to
-	 * @return - true if the salary cap was successfully set, false otherwise.
-	 */
-	public boolean setCap(String teamID, Integer cap)  {
-		Team team = database.getTeam(teamID);
-		if (cap < 0 || cap > team.getSalaryCap()) {
-			return false;
-		}
+    /**
+     * Sets the salaryCap for an NFL team
+     *
+     * @param teamID The team ID to set the salary cap
+     * @param cap    - the amount of money the cap will be set to
+     * @return - true if the salary cap was successfully set, false otherwise.
+     */
+    public boolean setCap(String teamID, Integer cap) {
+        Team team = database.getTeam(teamID);
+        if (cap < 0 || cap > team.getSalaryCap()) {
+            return false;
+        }
 
-		team.setSalaryCap(cap);
-		return true;
+        team.setSalaryCap(cap);
+        return true;
 
-	}
+    }
 
-	/**
-	 * Private function for returning the IDs of all the players
-	 * 
-	 * @param players
-	 *            - the list of players to get IDs from
-	 * @return the IDs of all the players as an array list of strings.
-	 */
-	private ArrayList<String> getplayerIDs(ArrayList<Player> players) {
-		ArrayList<String> playerIDs = new ArrayList<String>();
-		for (int i = 0; i < players.size(); i++) {
-			playerIDs.add(players.get(i).getId());
-		}
-		return playerIDs;
-	}
+    /**
+     * Private function for returning the IDs of all the players
+     *
+     * @param players - the list of players to get IDs from
+     * @return the IDs of all the players as an array list of strings.
+     */
+    private ArrayList<String> getPlayerIDs(ArrayList<Player> players) {
+        ArrayList<String> playerIDs = new ArrayList<String>();
+        for (int i = 0; i < players.size(); i++) {
+            playerIDs.add(players.get(i).getId());
+        }
+        return playerIDs;
+    }
 
     public boolean reset() {
         this.database = new DatabaseSupport();
@@ -78,9 +77,9 @@ public class NFLManager {
 
     public List<Player> searchPlayersByAverageCapHit(Integer low, Integer high) {
         List<Player> players = database.getPlayers();
-        for(Player p : players) {
+        for (Player p : players) {
             Integer capHit = p.getAverageCapHit();
-            if(capHit < low || capHit > high)
+            if (capHit < low || capHit > high)
                 players.remove(p);
         }
         return players;
@@ -88,8 +87,8 @@ public class NFLManager {
 
     public List<Player> searchPlayersByName(String name) {
         List<Player> players = database.getPlayers();
-        for(Player p : players) {
-            if(!p.getName().contains(name))
+        for (Player p : players) {
+            if (!p.getName().contains(name))
                 players.remove(p);
         }
         return players;
@@ -97,8 +96,8 @@ public class NFLManager {
 
     public List<Player> searchPlayersByPosition(String position) {
         List<Player> players = database.getPlayers();
-        for(Player p : players) {
-            if(!p.getPosition().contains(position))
+        for (Player p : players) {
+            if (!p.getPosition().contains(position))
                 players.remove(p);
         }
         return players;
@@ -106,8 +105,8 @@ public class NFLManager {
 
     public List<Team> searchTeamsByCapSpace(Integer capSpace) {
         List<Team> teams = database.getTeams();
-        for(Team t : teams) {
-            if(t.getFreeCapSpace() < capSpace)
+        for (Team t : teams) {
+            if (t.getFreeCapSpace() < capSpace)
                 teams.remove(t);
         }
         return teams;
@@ -124,7 +123,7 @@ public class NFLManager {
     public Team evaluateWinner(String playerID1, String playerID2) {
         Player player1 = getPlayer(playerID1);
         Player player2 = getPlayer(playerID2);
-        if(player1.getAverageCapHit() > player2.getAverageCapHit())
+        if (player1.getAverageCapHit() > player2.getAverageCapHit())
             return player1.getTeam();
         return player2.getTeam();
     }
@@ -140,12 +139,12 @@ public class NFLManager {
         Player player = getPlayer(playerID);
         Integer playerSalary = player.getTotalMoney();
         Integer playerYears = player.getYears();
-        if(salary < 0 || years < 0)return false;
+        if (salary < 0 || years < 0) return false;
         Integer newTotalMoney = playerSalary + salary;
         Integer newYears = playerYears + years;
         player.setTotalMoney(newTotalMoney);
         player.setYears(newYears);
-        player.setAverageCapHit(newTotalMoney/newYears);
+        player.setAverageCapHit(newTotalMoney / newYears);
         return true;
     }
 
