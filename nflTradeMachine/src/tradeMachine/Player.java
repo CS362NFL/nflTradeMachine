@@ -7,14 +7,32 @@ public class Player {
 	private int years;
 	private int totalMoney;
 	private int averageCapHit;
+	private Team team;
 	
-	public Player(String id, String position, String name, int years, int totalMoney, int averageCapHit){
+	public Player(String id, String position, String name, int years, int totalMoney, int averageCapHit, Team team){
 		this.id = id;
 		this.position = position;
 		this.name = name;
 		this.years = years;
 		this.totalMoney = totalMoney;
 		this.averageCapHit = averageCapHit;
+		this.team = team;
+	}
+
+	/**
+	 * 
+	 * @return the Team that the player is on
+	 */
+	public Team getTeam() {
+		return team;
+	}
+	
+	/**
+	 * 
+	 * @param team the player will be on
+	 */
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
 	/**
@@ -109,5 +127,17 @@ public class Player {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	/**
+	 * Add a player to a team and update the team attribute of a player
+	 * 
+	 * @param team to receive the player
+	 * @return The updated player
+	 */
+	public Player addTeam(Team team){
+		team.addPlayer(this);
+		this.setTeam(team);
+		return this;
 	}
 }
