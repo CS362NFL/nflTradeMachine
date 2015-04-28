@@ -30,6 +30,7 @@ public class DatabaseSupport {
 		for(TeamData t: nfldata.teams) {
 			Team newTeam = new Team(t.name, 143280000);
 			for(PlayerData p: t.players) {
+				if(p == null) continue;
 				Player newPlayer = new Player(p.name, p.position);
 				newPlayer.setYears(Integer.parseInt(p.contract_length));
 				newPlayer.setTotalMoney(Integer.parseInt(p.contract_value));
