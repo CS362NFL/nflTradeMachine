@@ -67,7 +67,6 @@ public class NFLManager {
 		for (int i = 0; i < players.size(); i++) {
 			playerIDs.add(players.get(i).getId());
 		}
-
 		return playerIDs;
 	}
 
@@ -77,19 +76,40 @@ public class NFLManager {
     }
 
     public List<Player> searchPlayersByAverageCapHit(Integer low, Integer high) {
-        return null;
+        List<Player> players = database.getPlayers();
+        for(Player p : players) {
+            Integer capHit = p.getAverageCapHit();
+            if(capHit < low || capHit > high)
+                players.remove(p);
+        }
+        return players;
     }
 
     public List<Player> searchPlayersByName(String name) {
-        return null;
+        List<Player> players = database.getPlayers();
+        for(Player p : players) {
+            if(!p.getName().contains(name))
+                players.remove(p);
+        }
+        return players;
     }
 
     public List<Player> searchPlayersByPosition(String position) {
-        return null;
+        List<Player> players = database.getPlayers();
+        for(Player p : players) {
+            if(!p.getPosition().contains(position))
+                players.remove(p);
+        }
+        return players;
     }
 
     public List<Team> searchTeamsByCapSpace(Integer capSpace) {
-        return null;
+        List<Team> teams = database.getTeams();
+        for(Team t : teams) {
+            if(t.getFreeCapSpace() < capSpace)
+                teams.remove(t);
+        }
+        return teams;
     }
 
     public boolean removePlayer(String playerID) {
