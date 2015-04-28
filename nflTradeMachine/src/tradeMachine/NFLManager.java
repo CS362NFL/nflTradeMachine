@@ -133,21 +133,11 @@ public class NFLManager {
     }
 
     public boolean removePlayer(String playerID) {
-    	ArrayList<String> playerIDs = getPlayerIDs(getPlayers());
-        if(playerIDs.contains(playerID)){
-        	playerIDs.remove(playerID);
-        	return true;
-        }
-        return false;
+    	return database.removePlayer(playerID);
     }
 
     public boolean removeTeam(String teamID) {
-    	ArrayList<String> teamIDs = getTeamIDs(getTeams());
-        if(teamIDs.contains(teamID)){
-        	teamIDs.remove(teamID);
-        	return true;
-        }
-        return false;
+    	return database.removePlayer(teamID);
     }
 
     public Team evaluateWinner(String playerID1, String playerID2) {
@@ -223,7 +213,16 @@ public class NFLManager {
     }
 
     public boolean addPlayer(String teamID, String playerID) {
-        return false;
+    	Player player = database.getPlayer(playerID);
+    	Team team = database.getTeam(teamID);
+    	if(player != null && team != null){
+	    	team.addPlayer(player);
+	    	player.addTeam(team);
+	    	database.putPlayer(player);
+	    	database.putTeam(team);
+	        return true;
+    	}
+    	return false;
     }
 
     public Player getPlayer(String playerID) {
