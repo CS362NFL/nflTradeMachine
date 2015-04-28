@@ -13,8 +13,29 @@ public class NFLTradeMachine {
         System.out.println("Hello and welcome to the NFL Trade Machine!");
         System.out.println("--------------------------------------------\n");
         while(!input.equals("Exit") && !input.equals("exit")) {
-            System.out.println("Please enter a command or type 'Exit' to stop.");
+            System.out.println("Please enter one of the following commands: trade, getTeam, getPlayer, getPlayersFromTeam, exit");
             input = scanner.next();
+            if(input.equals("getTeam")) {
+            	
+            }
+            
+            
         }
+    }
+    
+    public void trade() {
+    	
+    }
+    
+    public void getTeam() {
+    	
+    }
+    
+    public void getPlayer() {
+    	
+    }
+    
+    public void getPlayersFromTeam() {
+    	
     }
 }
