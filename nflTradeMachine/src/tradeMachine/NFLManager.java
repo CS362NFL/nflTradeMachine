@@ -6,8 +6,6 @@ import java.util.List;
 public class NFLManager {
 
     public DatabaseSupport database;
-    public ArrayList<Team> teams = new ArrayList<Team>();
-    public ArrayList<Player> players = new ArrayList<Player>();
     private final Integer MAXIMUM_CAP = new Integer(143280000);
 
     public NFLManager() {
