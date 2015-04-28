@@ -198,8 +198,8 @@ public class NFLManager {
     public boolean evaluate(String playerID1, String playerID2) {
         Player player1 = getPlayer(playerID1);
         Player player2 = getPlayer(playerID2);
-        return player1.getTeam().getFreeCapSpace() >= player2.getAverageCapHit()
-                && player2.getTeam().getFreeCapSpace() >= player1.getAverageCapHit();
+        return player1.getTeam().getFreeCapSpace() + player1.getAverageCapHit() >= player2.getAverageCapHit()
+                && player2.getTeam().getFreeCapSpace() + player2.getAverageCapHit() >= player1.getAverageCapHit();
     }
     
     
