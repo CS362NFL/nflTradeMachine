@@ -15,7 +15,7 @@ public class NFLTradeMachine {
         System.out.println("Hello and welcome to the NFL Trade Machine!");
         System.out.println("--------------------------------------------\n");
         while (!input.equals("Exit") && !input.equals("exit")) {
-            System.out.println("Please enter one of the following commands: trade, getTeam, getPlayer, getPlayersFromTeam, exit");
+            System.out.println("Please enter one of the following commands: trade, getTeam, getPlayer, getPlayersFromTeam, addPlayerToTeam, exit");
             input = scanner.nextLine();
             if (input.toLowerCase().equals("trade".toLowerCase())) {
             	trade();
@@ -122,5 +122,44 @@ public class NFLTradeMachine {
                 }
             }
         }
+    }
+    
+    public static void addPlayerToTeam() {
+    	Player p = null;
+    	Team t = null;
+    	
+    	while(p == null) {
+    		System.out.println("Please enter player you wish to add to a team:");
+        	String playerName = scanner.nextLine();
+        	List<Player> players = nflManagerController.searchPlayersByName(playerName);
+        	if(players.size() == 0) {
+        		System.out.println("No player was found with given name.");
+        		continue;
+        	}
+        	
+        	p = players.get(0);
+    	}
+    	
+    	if(p.getTeam() != null) {
+    		System.out.println(p.getName() + " already belongs to the " + p.getTeam().getName());
+    		return;
+    	}
+    	
+    	while(t == null) {
+    		System.out.println("Please enter name of team you want to add the player to:");
+    		String teamName = scanner.nextLine();
+        	List<Team> teams = nflManagerController.getTeams();
+        	for(Team team: teams) {
+        		if(team.getName().toLowerCase().contains(teamName.toLowerCase())) {
+        			t = team;
+        			break;
+        		}
+        	}
+    	}
+    	
+    	p.addTeam(t);
+    	t.addPlayer(p);
+    	System.out.println(p.getName() + " successfully added to " + t.getName());
+    	
     }
 }
