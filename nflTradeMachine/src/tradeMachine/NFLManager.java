@@ -14,13 +14,11 @@ public class NFLManager {
 	
 	/**
 	 * Creates a team
+     * @param name The name of the team
 	 * @param salaryCap The salary cap of the team
-	 * @param name The name of the team
 	 * @return Whether or not the operation succeeded
 	 */
 	public boolean createTeam(String name, Integer salaryCap) {
-        //todo - create a real ID
-
 		Team team = new Team(name, salaryCap);
 		if (teams.contains(team)) {
 			return false;
@@ -33,9 +31,7 @@ public class NFLManager {
 
 
 	public boolean createPlayer(String name, String position) {
-		ArrayList<String> playerIDs = getPlayerIDs(players);
-		Player player = new Player(name, position);
-		players.add(player);
+		players.add(new Player(name, position));
 		return true;
 
 	}
@@ -49,8 +45,7 @@ public class NFLManager {
 	 * @return - true if the salary cap was successfully set, false otherwise.
 	 */
 	public boolean setCap(String teamId, Integer cap)  {
-		DatabaseSupport db = new DatabaseSupport();
-		Team team = db.getTeam(teamId);
+		Team team = database.getTeam(teamId);
 		if (cap < 0 || cap > team.getSalaryCap()) {
 			return false;
 		}
@@ -58,17 +53,6 @@ public class NFLManager {
 		team.setSalaryCap(cap);
 		return true;
 
-	}
-
-	/**
-	 * Returns the name of the team based on the given team.
-	 * 
-	 * @param team
-	 *            - The team to get the name of.
-	 * @return name of team as a string.
-	 */
-	public String getName(Team team) {
-		return team.getName();
 	}
 
 	/**
@@ -88,7 +72,8 @@ public class NFLManager {
 	}
 
     public boolean reset() {
-        return false;
+        this.database = new DatabaseSupport();
+        return true;
     }
 
     public List<Player> searchPlayersByAverageCapHit(Integer low, Integer high) {
@@ -123,40 +108,49 @@ public class NFLManager {
         return false;
     }
 
-    public boolean extendPlayerContract(String playerid, int years) {
-        return false;
+    public boolean extendPlayerContract(String playerid, int years, int salary) {
+        Player player = getPlayer(playerid);
+        Integer playerSalary = player.getTotalMoney();
+        Integer playerYears = player.getYears();
+        if(salary < 0 || years < 0)return false;
+        Integer newTotalMoney = playerSalary + salary;
+        Integer newYears = playerYears + years;
+        player.setTotalMoney(newTotalMoney);
+        player.setYears(newYears);
+        player.setAverageCapHit(newTotalMoney/newYears);
+        return true;
     }
 
     public Integer getPlayerAverageCapHit(String playerid) {
-        return null;
+        return database.getPlayer(playerid).getAverageCapHit();
     }
 
     public Integer getPlayerTotalMoney(String playerid) {
-        return null;
+        return database.getPlayer(playerid).getTotalMoney();
     }
 
     public Integer getPlayerYears(String playerd) {
-        return null;
+        return database.getPlayer(playerd).getYears();
     }
 
     public Team getPlayerTeam(String playerid) {
-        return null;
+        return database.getPlayer(playerid).getTeam();
     }
 
     public String getPlayerPosition(String playerid) {
-        return null;
+        return database.getPlayer(playerid).getPosition();
     }
 
     public String getPlayerName(String playerid) {
-        return null;
+        return database.getPlayer(playerid).getName();
     }
 
     public Integer getNumberOfPlayers(String teamid) {
-        return null;
+        return database.getTeam(teamid).getPlayers().size();
     }
 
     public Integer getFreeCapSapce(String teamid) {
-        return null;
+        return database.getTeam(teamid).getFreeCapSpace();
     }
 
     public ArrayList<Player> getPlayers() {
@@ -168,7 +162,7 @@ public class NFLManager {
     }
 
     public String getTeamName(String teamid) {
-        return null;
+        return database.getTeam(teamid).getName();
     }
 
     public boolean addPlayer(String teamid, String playerid) {
@@ -176,6 +170,6 @@ public class NFLManager {
     }
 
     public Player getPlayer(String playerid) {
-        return null;
+        return database.getPlayer(playerid);
     }
 }

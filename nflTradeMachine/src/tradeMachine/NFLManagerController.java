@@ -72,8 +72,8 @@ public class NFLManagerController {
         return this.getNFLManagerInstance().getPlayerAverageCapHit(playerid);
     }
 
-    boolean extendPlayerContract(String playerid, int years) {
-        return this.getNFLManagerInstance().extendPlayerContract(playerid, years);
+    boolean extendPlayerContract(String playerid, int years, int salary) {
+        return this.getNFLManagerInstance().extendPlayerContract(playerid, years, salary);
     }
 
     boolean evaluate(String playerid1, String playerid2) {
