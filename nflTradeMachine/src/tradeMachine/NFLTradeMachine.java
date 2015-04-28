@@ -17,7 +17,7 @@ public class NFLTradeMachine {
             System.out.println("Please enter one of the following commands: trade, getTeam, getPlayer, getPlayersFromTeam, exit");
             input = scanner.next();
             if (input.equals("getTeam")) {
-
+            	getTeam();
             }
             if(input.toLowerCase().equals("getPlayersFromTeam".toLowerCase())) {
                 getPlayersFromTeam();
@@ -29,8 +29,15 @@ public class NFLTradeMachine {
 
     }
 
-    public void getTeam() {
-
+    public static void getTeam() {
+    	System.out.println("Please enter a team name to get the players from:");
+        String teamName = scanner.next();
+        System.out.println("Name\t\tSalary Cap\tFree Cap Space");
+    	for(Team t: nflManagerController.getTeams()) {
+    		if(t.getName().toLowerCase().contains(teamName.toLowerCase())) {
+    			System.out.println(t.getName() + "\t" + t.getSalaryCap() + "\t" + t.getFreeCapSpace());
+    		}
+    	}
     }
 
     public void getPlayer() {
