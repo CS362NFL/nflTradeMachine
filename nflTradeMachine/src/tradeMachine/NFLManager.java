@@ -177,7 +177,7 @@ public class NFLManager {
         return database.getTeam(teamID).getPlayers().size();
     }
 
-    public Integer getFreeCapSapce(String teamID) {
+    public Integer getFreeCapSpace(String teamID) {
         return database.getTeam(teamID).getFreeCapSpace();
     }
 

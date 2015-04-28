@@ -40,8 +40,8 @@ public class NFLManagerController {
         return this.getNFLManagerInstance().getPlayers();
     }
 
-    Integer getFreeCapSapce(String teamID) {
-        return this.getNFLManagerInstance().getFreeCapSapce(teamID);
+    Integer getFreeCapSpace(String teamID) {
+        return this.getNFLManagerInstance().getFreeCapSpace(teamID);
     }
 
     Integer getNumberOfPlayers(String teamID) {
