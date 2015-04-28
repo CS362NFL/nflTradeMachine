@@ -12,8 +12,8 @@ public class NFLManagerController {
         return this.getNFLManagerInstance().createPlayer(name, position);
     }
 
-    boolean createTeam(Integer salaryCap, String name) {
-        return this.getNFLManagerInstance().createTeam(salaryCap, name);
+    boolean createTeam(String name, Integer salaryCap) {
+        return this.getNFLManagerInstance().createTeam(name, salaryCap);
     }
 
     boolean setCap(String teamId, Integer cap) {

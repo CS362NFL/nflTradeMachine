@@ -14,13 +14,14 @@ public class NFLManager {
 	
 	/**
 	 * Creates a team
-	 * @param id The id of the team
 	 * @param salaryCap The salary cap of the team
 	 * @param name The name of the team
 	 * @return Whether or not the operation succeeded
 	 */
-	public boolean createTeam(Integer salaryCap, String name) {
-		Team team = new Team(salaryCap, name);
+	public boolean createTeam(String name, Integer salaryCap) {
+        //todo - create a real ID
+
+		Team team = new Team(name, salaryCap);
 		if (teams.contains(team)) {
 			return false;
 		} else {
@@ -33,7 +34,7 @@ public class NFLManager {
 
 	public boolean createPlayer(String name, String position) {
 		ArrayList<String> playerIDs = getPlayerIDs(players);
-		Player player = new Player(position, name, null, null, null);
+		Player player = new Player(name, position);
 		players.add(player);
 		return true;
 
