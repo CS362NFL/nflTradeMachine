@@ -7,6 +7,7 @@ public class NFLManager {
 	public DatabaseSupport database;
 	public ArrayList<Team> teams = new ArrayList<Team>();
 	public ArrayList<Player> players = new ArrayList<Player>();
+    private final Integer MAXIMUM_CAP = new Integer(143280000);
 	
 	public NFLManager() {
 		this.database = new DatabaseSupport();
@@ -121,11 +122,18 @@ public class NFLManager {
     }
 
     public Team evaluateWinner(String playerID1, String playerID2) {
-        return null;
+        Player player1 = getPlayer(playerID1);
+        Player player2 = getPlayer(playerID2);
+        if(player1.getAverageCapHit() > player2.getAverageCapHit())
+            return player1.getTeam();
+        return player2.getTeam();
     }
 
     public boolean evaluate(String playerID1, String playerID2) {
-        return false;
+        Player player1 = getPlayer(playerID1);
+        Player player2 = getPlayer(playerID2);
+        return player1.getTeam().getFreeCapSpace() >= player2.getAverageCapHit()
+                && player2.getTeam().getFreeCapSpace() >= player1.getAverageCapHit();
     }
 
     public boolean extendPlayerContract(String playerID, int years, int salary) {
