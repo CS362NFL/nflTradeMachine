@@ -34,14 +34,12 @@ public class NFLTradeMachine {
 
 			if (input.toLowerCase().equals("createPlayer".toLowerCase())) {
 				createPlayer();
-
-				if (input.toLowerCase().equals("addPlayerToTeam".toLowerCase())) {
-					addPlayerToTeam();
-				}
-
-				if (input.toLowerCase().equals("reset".toLowerCase())) {
-					nflManagerController.reset();
-				}
+			}
+			if (input.toLowerCase().equals("addPlayerToTeam".toLowerCase())) {
+				addPlayerToTeam();
+			}
+			if (input.toLowerCase().equals("reset".toLowerCase())) {
+				nflManagerController.reset();
 			}
 		}
 	}
