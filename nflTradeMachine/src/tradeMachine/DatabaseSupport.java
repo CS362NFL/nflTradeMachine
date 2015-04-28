@@ -28,7 +28,8 @@ public class DatabaseSupport {
 		}
 		NFLData nfldata = gson.fromJson(file, NFLData.class);
 		for(TeamData t: nfldata.teams) {
-			Team newTeam = new Team(t.name, 143280000);
+			int cap = 143280000;
+			Team newTeam = new Team(t.name, cap);
 			for(PlayerData p: t.players) {
 				if(p == null) continue;
 				Player newPlayer = new Player(p.name, p.position);
@@ -36,9 +37,11 @@ public class DatabaseSupport {
 				newPlayer.setTotalMoney(Integer.parseInt(p.contract_value));
 				newPlayer.setTeam(newTeam);
 				newPlayer.setAverageCapHit(Integer.parseInt(p.average_salary));
+				cap -= Integer.parseInt(p.average_salary);
 				newTeam.addPlayer(newPlayer);
 				players.add(newPlayer);
 			}
+			newTeam.setFreeCapSpace(cap);
 			teams.add(newTeam);
 		}
 	}
