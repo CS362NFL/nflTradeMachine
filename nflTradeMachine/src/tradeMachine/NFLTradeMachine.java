@@ -16,7 +16,7 @@ public class NFLTradeMachine {
         while (!input.equals("Exit") && !input.equals("exit")) {
             System.out.println("Please enter one of the following commands: trade, getTeam, getPlayer, getPlayersFromTeam, exit");
             input = scanner.nextLine();
-            if (input.equals("getTeam")) {
+            if (input.toLowerCase().equals("getTeam".toLowerCase())) {
             	getTeam();
             }
             if(input.toLowerCase().equals("getPlayersFromTeam".toLowerCase())) {
