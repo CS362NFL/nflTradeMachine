@@ -35,7 +35,7 @@ public class NFLTradeMachine {
 
     public static void getTeam() {
     	System.out.println("Please enter a team name to get the players from:");
-        String teamName = scanner.next();
+        String teamName = scanner.nextLine();
         System.out.println("Name\t\tSalary Cap\tFree Cap Space");
     	for(Team t: nflManagerController.getTeams()) {
     		if(t.getName().toLowerCase().contains(teamName.toLowerCase())) {
@@ -56,10 +56,11 @@ public class NFLTradeMachine {
 
     public static void getPlayersFromTeam() {
         System.out.println("Please enter a team name to get the players from:");
-        String teamName = scanner.next();
+        String teamName = scanner.nextLine();
         List<Team> teams = nflManagerController.getTeams();
         for(Team t : teams) {
             if(t.getName().toLowerCase().contains(teamName.toLowerCase())) {
+                System.out.println("Players for " + t.getName() + ":");
                 System.out.println("Name\t\tPosition\tAverage Cap Hit");
                 for(Player p : t.getPlayers()) {
                     System.out.println(p.getName() + "\t" + p.getPosition() + "\t" + p.getAverageCapHit());
