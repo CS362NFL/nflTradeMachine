@@ -5,11 +5,12 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import java.util.Scanner;
 
 public class NFLTradeMachine {
-
+	static Scanner scanner;
+	
     public static void main(String[] args) {
         NFLManagerController nflManagerController = new NFLManagerController();
         String input = "";
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
         System.out.println("Hello and welcome to the NFL Trade Machine!");
         System.out.println("--------------------------------------------\n");
         while(!input.equals("Exit") && !input.equals("exit")) {
@@ -27,7 +28,7 @@ public class NFLTradeMachine {
     	
     }
     
-    public void getTeam() {
+    public void getTeam(String) {
     	
     }
     
