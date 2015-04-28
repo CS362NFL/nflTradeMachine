@@ -1,6 +1,7 @@
 package tradeMachine;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NFLManager {
 	public DatabaseSupport database;
@@ -13,13 +14,13 @@ public class NFLManager {
 	
 	/**
 	 * Creates a team
+	 * @param id The id of the team
 	 * @param salaryCap The salary cap of the team
 	 * @param name The name of the team
-	 * @param id The id of the team
 	 * @return Whether or not the operation succeeded
 	 */
-	public boolean createTeam(Integer salaryCap, String name, String id) {
-		Team team = new Team(new ArrayList<Player>(), salaryCap, name, id);
+	public boolean createTeam(Integer salaryCap, String name) {
+		Team team = new Team(salaryCap, name);
 		if (teams.contains(team)) {
 			return false;
 		} else {
@@ -30,12 +31,9 @@ public class NFLManager {
 	}
 
 
-	public boolean createPlayer(String name, String position, String id, int years, int totalMoney) {
+	public boolean createPlayer(String name, String position) {
 		ArrayList<String> playerIDs = getPlayerIDs(players);
-		if(playerIDs.contains(id)) {
-			return false;
-		}
-		Player player = new Player(id, position, name, years, totalMoney, years/totalMoney);
+		Player player = new Player(position, name, null, null, null);
 		players.add(player);
 		return true;
 
@@ -87,5 +85,96 @@ public class NFLManager {
 
 		return playerIDs;
 	}
-	
+
+    public boolean reset() {
+        return false;
+    }
+
+    public List<Player> searchPlayersByAverageCapHit(Integer low, Integer high) {
+        return null;
+    }
+
+    public List<Player> searchPlayersByName(String name) {
+        return null;
+    }
+
+    public List<Player> searchPlayersByPosition(String position) {
+        return null;
+    }
+
+    public List<Team> searchTeamsByCapSpace(Integer capSpace) {
+        return null;
+    }
+
+    public boolean removePlayer(String playerID) {
+        return false;
+    }
+
+    public boolean removeTeam(String teamID) {
+        return false;
+    }
+
+    public Team evaluateWinner(String playerid1, String playerid2) {
+        return null;
+    }
+
+    public boolean evaluate(String playerid1, String playerid2) {
+        return false;
+    }
+
+    public boolean extendPlayerContract(String playerid, int years) {
+        return false;
+    }
+
+    public Integer getPlayerAverageCapHit(String playerid) {
+        return null;
+    }
+
+    public Integer getPlayerTotalMoney(String playerid) {
+        return null;
+    }
+
+    public Integer getPlayerYears(String playerd) {
+        return null;
+    }
+
+    public Team getPlayerTeam(String playerid) {
+        return null;
+    }
+
+    public String getPlayerPosition(String playerid) {
+        return null;
+    }
+
+    public String getPlayerName(String playerid) {
+        return null;
+    }
+
+    public Integer getNumberOfPlayers(String teamid) {
+        return null;
+    }
+
+    public Integer getFreeCapSapce(String teamid) {
+        return null;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public ArrayList<Team> getTeams() {
+        return teams;
+    }
+
+    public String getTeamName(String teamid) {
+        return null;
+    }
+
+    public boolean addPlayer(String teamid, String playerid) {
+        return false;
+    }
+
+    public Player getPlayer(String playerid) {
+        return null;
+    }
 }
