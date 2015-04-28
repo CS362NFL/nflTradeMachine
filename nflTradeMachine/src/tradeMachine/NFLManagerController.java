@@ -1,7 +1,5 @@
 package tradeMachine;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class NFLManagerController {
@@ -40,8 +38,8 @@ public class NFLManagerController {
         return this.getNFLManagerInstance().getPlayers();
     }
 
-    Integer getFreeCapSapce(String teamID) {
-        return this.getNFLManagerInstance().getFreeCapSapce(teamID);
+    Integer getFreeCapSpace(String teamID) {
+        return this.getNFLManagerInstance().getFreeCapSpace(teamID);
     }
 
     Integer getNumberOfPlayers(String teamID) {
@@ -112,8 +110,8 @@ public class NFLManagerController {
         return this.getNFLManagerInstance().reset();
     }
 
-    private NFLManager getNFLManagerInstance(){
-        if(nflManager == null) nflManager = new NFLManager();
+    private NFLManager getNFLManagerInstance() {
+        if (nflManager == null) nflManager = new NFLManager();
         return nflManager;
     }
 }
