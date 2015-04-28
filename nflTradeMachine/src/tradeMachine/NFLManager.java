@@ -70,6 +70,22 @@ public class NFLManager {
 
 		return playerIDs;
 	}
+	
+	/**
+	 * Private function for returning the IDs of all the teams
+	 * 
+	 * @param teams
+	 *            - the list of teams to get IDs from
+	 * @return the IDs of all the teams as an array list of strings.
+	 */
+	private ArrayList<String> getTeamIDs(ArrayList<Team> teams) {
+		ArrayList<String> teamIDs = new ArrayList<String>();
+		for (int i = 0; i < teams.size(); i++) {
+			teamIDs.add(teams.get(i).getTeamID());
+		}
+
+		return teamIDs;
+	}
 
     public boolean reset() {
         this.database = new DatabaseSupport();
@@ -93,10 +109,20 @@ public class NFLManager {
     }
 
     public boolean removePlayer(String playerID) {
+    	ArrayList<String> playerIDs = getplayerIDs(players);
+        if(playerIDs.contains(playerID)){
+        	playerIDs.remove(playerID);
+        	return true;
+        }
         return false;
     }
 
     public boolean removeTeam(String teamID) {
+    	ArrayList<String> teamIDs = getTeamIDs(teams);
+        if(teamIDs.contains(teamID)){
+        	teamIDs.remove(teamID);
+        	return true;
+        }
         return false;
     }
 

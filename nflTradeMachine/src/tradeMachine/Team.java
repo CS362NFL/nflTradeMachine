@@ -112,7 +112,7 @@ public class Team {
 	/**
 	 * @return the id of the team as a string.
 	 */
-	public String geteamID() {
+	public String getTeamID() {
 		return teamID;
 	}
 
@@ -122,7 +122,7 @@ public class Team {
 	 * @param id
 	 *            - the id to set for the team
 	 */
-	public void setteamID(String teamID) {
+	public void setTeamID(String teamID) {
 		this.teamID = teamID;
 	}
 
