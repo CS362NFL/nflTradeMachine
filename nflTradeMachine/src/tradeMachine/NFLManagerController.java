@@ -3,7 +3,7 @@ package tradeMachine;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class NFLController {
+public class NFLManagerController {
 
 	/*
 	 * Stores an instance of NFL that is used to call the NFL methods
