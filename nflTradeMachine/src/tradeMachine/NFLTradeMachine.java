@@ -1,5 +1,6 @@
 package tradeMachine;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -88,9 +89,20 @@ public class NFLTradeMachine {
     }
 
     public static void getPlayer() {
-    	System.out.println("Please enter the name of the player you wish to view: ");
-    	String playerName = scanner.nextLine();
-    	List<Player> players = nflManagerController.searchPlayersByName(playerName);
+    	System.out.println("Would you like to search by Name, Position, or Average Cap Hit");
+        String option = scanner.nextLine();
+        List<Player> players = new ArrayList<Player>();
+        if(option.toLowerCase().contains("Name".toLowerCase())) {
+            System.out.println("Enter a Name to search for:");
+            players = nflManagerController.searchPlayersByName(scanner.nextLine());
+        } else if (option.toLowerCase().contains("Position".toLowerCase())) {
+            System.out.println("Enter a Position to search for:");
+            players = nflManagerController.searchPlayersByPosition(scanner.nextLine());
+        } else if (option.toLowerCase().contains("Average Cap Hit".toLowerCase())) {
+            System.out.println("Enter the low and high bounds to search for:");
+            String[] values = scanner.nextLine().split(" ");
+            players = nflManagerController.searchPlayersByAverageCapHit(Integer.parseInt(values[0]), Integer.parseInt(values[1]));
+        }
     	System.out.println("Name\t\tPosition\tTeam\t\t\tAverage Cap Hit");
     	for(Player p: players){
     		System.out.println(p.getName() + "\t" + p.getPosition() + "\t" + p.getTeam().getName() + "\t\t" + p.getAverageCapHit());

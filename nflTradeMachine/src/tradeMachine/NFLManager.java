@@ -110,7 +110,7 @@ public class NFLManager {
         List<Player> players = new ArrayList<Player>();
         for (Player p : getPlayers()) {
             Integer capHit = p.getAverageCapHit();
-            if (capHit >= low || capHit <= high)
+            if (capHit >= low && capHit <= high)
                 players.add(p);
         }
         return players;
