@@ -43,7 +43,7 @@ public class NFLTradeMachine {
         List<Team> teams = nflManagerController.getTeams();
         for(Team t : teams) {
             if(t.getName().toLowerCase().contains(teamName.toLowerCase())) {
-                System.out.println("Name\tPosition\tAverage Cap Hit");
+                System.out.println("Name\t\tPosition\tAverage Cap Hit");
                 for(Player p : t.getPlayers()) {
                     System.out.println(p.getName() + "\t" + p.getPosition() + "\t" + p.getAverageCapHit());
                 }
