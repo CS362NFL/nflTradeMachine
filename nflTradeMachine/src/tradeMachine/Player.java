@@ -13,10 +13,6 @@ public class Player {
 		this.id = position + name;
 		this.position = position;
 		this.name = name;
-		this.years = years;
-		this.totalMoney = totalMoney;
-		this.averageCapHit = averageCapHit;
-		this.team = team;
 	}
 
 	/**
