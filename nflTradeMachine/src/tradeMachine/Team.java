@@ -145,6 +145,11 @@ public class Team {
 
 	}
 	
+	/**
+	 * Removes the player from the team
+	 * @param player - the player to remove
+	 * @return updated list of players
+	 */
 	public boolean removePlayer(Player player) {
 		return players.remove(player);
 	}
