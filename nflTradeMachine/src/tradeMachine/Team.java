@@ -20,12 +20,10 @@ public class Team {
 	/**
 	 * Constructor to create a Team instance.
 	 */
-	public Team(ArrayList<Player> players, Integer salaryCap, String name,
-			String id) {
-		this.players = players;
-		this.salaryCap = salaryCap;
+	public Team(String name, Integer salaryCap) {
 		this.name = name;
-		this.id = id;
+		this.salaryCap = salaryCap;
+		
 	}
 
 	/**

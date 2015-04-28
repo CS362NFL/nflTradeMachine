@@ -9,8 +9,8 @@ public class Player {
 	private int averageCapHit;
 	private Team team;
 	
-	public Player(String id, String position, String name, int years, int totalMoney, int averageCapHit, Team team){
-		this.id = id;
+	public Player(String name, String position){
+		this.id = position + name;
 		this.position = position;
 		this.name = name;
 		this.years = years;
