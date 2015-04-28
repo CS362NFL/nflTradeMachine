@@ -100,4 +100,19 @@ public class DatabaseSupport {
 		teams.add(t);
 		return true;
 	}
+	
+	public boolean removePlayer(String playerid) {
+		Player p = getPlayer(playerid);
+		if(p == null) return false;
+		players.remove(p);
+		if(p.getTeam() != null) {
+			return p.getTeam().removePlayer(p);
+		}
+		return true;
+	}
+	
+	public boolean removeTeam(String teamid) {
+		Team t = getTeam(teamid);
+		return teams.remove(t);
+	}
 }
