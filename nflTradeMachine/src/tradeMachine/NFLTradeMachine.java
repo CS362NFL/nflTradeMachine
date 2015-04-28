@@ -1,8 +1,20 @@
 package tradeMachine;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
+import java.util.Scanner;
+
 public class NFLTradeMachine {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        NFLManagerController nflManagerController = new NFLManagerController();
+        String input = "";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Hello and welcome to the NFL Trade Machine!");
+        System.out.println("--------------------------------------------\n");
+        while(!input.equals("Exit") && !input.equals("exit")) {
+            System.out.println("Please enter a command or type 'Exit' to stop.");
+            input = scanner.next();
+        }
     }
 }
