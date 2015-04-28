@@ -1,5 +1,6 @@
 package tradeMachine;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class NFLTradeMachine {
@@ -18,8 +19,9 @@ public class NFLTradeMachine {
             if (input.equals("getTeam")) {
 
             }
-
-
+            if(input.toLowerCase().equals("getPlayersFromTeam".toLowerCase())) {
+                getPlayersFromTeam();
+            }
         }
     }
 
@@ -35,8 +37,17 @@ public class NFLTradeMachine {
 
     }
 
-    public void getPlayersFromTeam() {
+    public static void getPlayersFromTeam() {
         System.out.println("Please enter a team name to get the players from:");
         String teamName = scanner.next();
+        List<Team> teams = nflManagerController.getTeams();
+        for(Team t : teams) {
+            if(t.getName().toLowerCase().contains(teamName.toLowerCase())) {
+                System.out.println("Name\tPosition\tAverage Cap Hit");
+                for(Player p : t.getPlayers()) {
+                    System.out.println(p.getName() + "\t" + p.getPosition() + "\t" + p.getAverageCapHit());
+                }
+            }
+        }
     }
 }
