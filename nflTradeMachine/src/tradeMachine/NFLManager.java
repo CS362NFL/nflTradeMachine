@@ -21,10 +21,10 @@ public class NFLManager {
      */
     public boolean createTeam(String name, Integer salaryCap) {
         Team team = new Team(name, salaryCap);
-        if (teams.contains(team)) {
+        if (getTeams().contains(team)) {
             return false;
         } else {
-            teams.add(team);
+            getTeams().add(team);
             return true;
         }
 
@@ -32,9 +32,13 @@ public class NFLManager {
 
 
     public boolean createPlayer(String name, String position) {
-        players.add(new Player(name, position));
-        return true;
-
+        Player player = new Player(name, position);
+        if (getPlayers().contains(player)) {
+            return false;
+        } else {
+            getPlayers().add(player);
+            return true;
+        }
     }
 
     /**
@@ -129,7 +133,7 @@ public class NFLManager {
     }
 
     public boolean removePlayer(String playerID) {
-    	ArrayList<String> playerIDs = getPlayerIDs(players);
+    	ArrayList<String> playerIDs = getPlayerIDs(getPlayers());
         if(playerIDs.contains(playerID)){
         	playerIDs.remove(playerID);
         	return true;
@@ -138,7 +142,7 @@ public class NFLManager {
     }
 
     public boolean removeTeam(String teamID) {
-    	ArrayList<String> teamIDs = getTeamIDs(teams);
+    	ArrayList<String> teamIDs = getTeamIDs(getTeams());
         if(teamIDs.contains(teamID)){
         	teamIDs.remove(teamID);
         	return true;
@@ -207,11 +211,11 @@ public class NFLManager {
     }
 
     public ArrayList<Player> getPlayers() {
-        return players;
+        return database.getPlayers();
     }
 
     public ArrayList<Team> getTeams() {
-        return teams;
+        return database.getTeams();
     }
 
     public String getTeamName(String teamID) {
