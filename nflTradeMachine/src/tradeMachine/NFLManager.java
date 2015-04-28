@@ -96,11 +96,11 @@ public class NFLManager {
     }
 
     public List<Player> searchPlayersByAverageCapHit(Integer low, Integer high) {
-        List<Player> players = database.getPlayers();
-        for (Player p : players) {
+        List<Player> players = new ArrayList<Player>();
+        for (Player p : getPlayers()) {
             Integer capHit = p.getAverageCapHit();
-            if (capHit < low || capHit > high)
-                players.remove(p);
+            if (capHit >= low || capHit <= high)
+                players.add(p);
         }
         return players;
     }
@@ -115,19 +115,19 @@ public class NFLManager {
     }
 
     public List<Player> searchPlayersByPosition(String position) {
-        List<Player> players = database.getPlayers();
-        for (Player p : players) {
-            if (!p.getPosition().contains(position))
-                players.remove(p);
+        List<Player> players = new ArrayList<Player>();
+        for (Player p : getPlayers()) {
+            if (p.getPosition().toLowerCase().contains(position.toLowerCase()))
+                players.add(p);
         }
         return players;
     }
 
     public List<Team> searchTeamsByCapSpace(Integer capSpace) {
-        List<Team> teams = database.getTeams();
-        for (Team t : teams) {
-            if (t.getFreeCapSpace() < capSpace)
-                teams.remove(t);
+        List<Team> teams = new ArrayList<Team>();
+        for (Team t : getTeams()) {
+            if (t.getFreeCapSpace() >= capSpace)
+                teams.add(t);
         }
         return teams;
     }
