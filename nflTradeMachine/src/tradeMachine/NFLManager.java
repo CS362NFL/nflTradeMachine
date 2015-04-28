@@ -39,13 +39,13 @@ public class NFLManager {
 	/**
 	 * Sets the salaryCap for an NFL team
 	 * 
-	 * @param teamId The team ID to set the salary cap
+	 * @param teamID The team ID to set the salary cap
 	 * @param cap
 	 *            - the amount of money the cap will be set to
 	 * @return - true if the salary cap was successfully set, false otherwise.
 	 */
-	public boolean setCap(String teamId, Integer cap)  {
-		Team team = database.getTeam(teamId);
+	public boolean setCap(String teamID, Integer cap)  {
+		Team team = database.getTeam(teamID);
 		if (cap < 0 || cap > team.getSalaryCap()) {
 			return false;
 		}
@@ -62,7 +62,7 @@ public class NFLManager {
 	 *            - the list of players to get IDs from
 	 * @return the IDs of all the players as an array list of strings.
 	 */
-	private ArrayList<String> getPlayerIDs(ArrayList<Player> players) {
+	private ArrayList<String> getplayerIDs(ArrayList<Player> players) {
 		ArrayList<String> playerIDs = new ArrayList<String>();
 		for (int i = 0; i < players.size(); i++) {
 			playerIDs.add(players.get(i).getId());
@@ -100,16 +100,16 @@ public class NFLManager {
         return false;
     }
 
-    public Team evaluateWinner(String playerid1, String playerid2) {
+    public Team evaluateWinner(String playerID1, String playerID2) {
         return null;
     }
 
-    public boolean evaluate(String playerid1, String playerid2) {
+    public boolean evaluate(String playerID1, String playerID2) {
         return false;
     }
 
-    public boolean extendPlayerContract(String playerid, int years, int salary) {
-        Player player = getPlayer(playerid);
+    public boolean extendPlayerContract(String playerID, int years, int salary) {
+        Player player = getPlayer(playerID);
         Integer playerSalary = player.getTotalMoney();
         Integer playerYears = player.getYears();
         if(salary < 0 || years < 0)return false;
@@ -121,36 +121,36 @@ public class NFLManager {
         return true;
     }
 
-    public Integer getPlayerAverageCapHit(String playerid) {
-        return database.getPlayer(playerid).getAverageCapHit();
+    public Integer getPlayerAverageCapHit(String playerID) {
+        return database.getPlayer(playerID).getAverageCapHit();
     }
 
-    public Integer getPlayerTotalMoney(String playerid) {
-        return database.getPlayer(playerid).getTotalMoney();
+    public Integer getPlayerTotalMoney(String playerID) {
+        return database.getPlayer(playerID).getTotalMoney();
     }
 
     public Integer getPlayerYears(String playerd) {
         return database.getPlayer(playerd).getYears();
     }
 
-    public Team getPlayerTeam(String playerid) {
-        return database.getPlayer(playerid).getTeam();
+    public Team getPlayerTeam(String playerID) {
+        return database.getPlayer(playerID).getTeam();
     }
 
-    public String getPlayerPosition(String playerid) {
-        return database.getPlayer(playerid).getPosition();
+    public String getPlayerPosition(String playerID) {
+        return database.getPlayer(playerID).getPosition();
     }
 
-    public String getPlayerName(String playerid) {
-        return database.getPlayer(playerid).getName();
+    public String getPlayerName(String playerID) {
+        return database.getPlayer(playerID).getName();
     }
 
-    public Integer getNumberOfPlayers(String teamid) {
-        return database.getTeam(teamid).getPlayers().size();
+    public Integer getNumberOfPlayers(String teamID) {
+        return database.getTeam(teamID).getPlayers().size();
     }
 
-    public Integer getFreeCapSapce(String teamid) {
-        return database.getTeam(teamid).getFreeCapSpace();
+    public Integer getFreeCapSapce(String teamID) {
+        return database.getTeam(teamID).getFreeCapSpace();
     }
 
     public ArrayList<Player> getPlayers() {
@@ -161,15 +161,15 @@ public class NFLManager {
         return teams;
     }
 
-    public String getTeamName(String teamid) {
-        return database.getTeam(teamid).getName();
+    public String getTeamName(String teamID) {
+        return database.getTeam(teamID).getName();
     }
 
-    public boolean addPlayer(String teamid, String playerid) {
+    public boolean addPlayer(String teamID, String playerID) {
         return false;
     }
 
-    public Player getPlayer(String playerid) {
-        return database.getPlayer(playerid);
+    public Player getPlayer(String playerID) {
+        return database.getPlayer(playerID);
     }
 }

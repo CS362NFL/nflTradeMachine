@@ -11,7 +11,7 @@ public class Team {
 	private ArrayList<Player> players = new ArrayList<Player>();
 	private Integer salaryCap;
 	private String name;
-	private String teamid;
+	private String teamID;
 	private Integer freeCapSpace;
 
 	protected Team() {
@@ -36,7 +36,7 @@ public class Team {
 			this.players.add(new Player(p));
 		}
 		this.name = team.name;
-		this.teamid = team.name;
+		this.teamID = team.name;
 	}
 
 	/**
@@ -112,8 +112,8 @@ public class Team {
 	/**
 	 * @return the id of the team as a string.
 	 */
-	public String geTeamid() {
-		return teamid;
+	public String geteamID() {
+		return teamID;
 	}
 
 	/**
@@ -122,8 +122,8 @@ public class Team {
 	 * @param id
 	 *            - the id to set for the team
 	 */
-	public void setTeamid(String teamid) {
-		this.teamid = teamid;
+	public void setteamID(String teamID) {
+		this.teamID = teamID;
 	}
 
 	/**

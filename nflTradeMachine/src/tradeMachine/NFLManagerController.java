@@ -16,20 +16,20 @@ public class NFLManagerController {
         return this.getNFLManagerInstance().createTeam(name, salaryCap);
     }
 
-    boolean setCap(String teamId, Integer cap) {
-        return this.getNFLManagerInstance().setCap(teamId, cap);
+    boolean setCap(String teamID, Integer cap) {
+        return this.getNFLManagerInstance().setCap(teamID, cap);
     }
 
-    Player getPlayer(String playerid) {
-        return this.getNFLManagerInstance().getPlayer(playerid);
+    Player getPlayer(String playerID) {
+        return this.getNFLManagerInstance().getPlayer(playerID);
     }
 
-    boolean addPlayer(String teamid, String playerid) {
-        return this.getNFLManagerInstance().addPlayer(teamid, playerid);
+    boolean addPlayer(String teamID, String playerID) {
+        return this.getNFLManagerInstance().addPlayer(teamID, playerID);
     }
 
-    String getTeamName(String teamid) {
-        return this.getNFLManagerInstance().getTeamName(teamid);
+    String getTeamName(String teamID) {
+        return this.getNFLManagerInstance().getTeamName(teamID);
     }
 
     List<Team> getTeams() {
@@ -40,48 +40,48 @@ public class NFLManagerController {
         return this.getNFLManagerInstance().getPlayers();
     }
 
-    Integer getFreeCapSapce(String teamid) {
-        return this.getNFLManagerInstance().getFreeCapSapce(teamid);
+    Integer getFreeCapSapce(String teamID) {
+        return this.getNFLManagerInstance().getFreeCapSapce(teamID);
     }
 
-    Integer getNumberOfPlayers(String teamid) {
-        return this.getNFLManagerInstance().getNumberOfPlayers(teamid);
+    Integer getNumberOfPlayers(String teamID) {
+        return this.getNFLManagerInstance().getNumberOfPlayers(teamID);
     }
 
-    String getPlayerName(String playerid) {
-        return this.getNFLManagerInstance().getPlayerName(playerid);
+    String getPlayerName(String playerID) {
+        return this.getNFLManagerInstance().getPlayerName(playerID);
     }
 
-    String getPlayerPosition(String playerid) {
-        return this.getNFLManagerInstance().getPlayerPosition(playerid);
+    String getPlayerPosition(String playerID) {
+        return this.getNFLManagerInstance().getPlayerPosition(playerID);
     }
 
-    Team getPlayerTeam(String playerid) {
-        return this.getNFLManagerInstance().getPlayerTeam(playerid);
+    Team getPlayerTeam(String playerID) {
+        return this.getNFLManagerInstance().getPlayerTeam(playerID);
     }
 
     Integer getPlayerYears(String playerd) {
         return this.getNFLManagerInstance().getPlayerYears(playerd);
     }
 
-    Integer getPlayerTotalMoney(String playerid) {
-        return this.getNFLManagerInstance().getPlayerTotalMoney(playerid);
+    Integer getPlayerTotalMoney(String playerID) {
+        return this.getNFLManagerInstance().getPlayerTotalMoney(playerID);
     }
 
-    Integer getPlayerAverageCapHit(String playerid) {
-        return this.getNFLManagerInstance().getPlayerAverageCapHit(playerid);
+    Integer getPlayerAverageCapHit(String playerID) {
+        return this.getNFLManagerInstance().getPlayerAverageCapHit(playerID);
     }
 
-    boolean extendPlayerContract(String playerid, int years, int salary) {
-        return this.getNFLManagerInstance().extendPlayerContract(playerid, years, salary);
+    boolean extendPlayerContract(String playerID, int years, int salary) {
+        return this.getNFLManagerInstance().extendPlayerContract(playerID, years, salary);
     }
 
-    boolean evaluate(String playerid1, String playerid2) {
-        return this.getNFLManagerInstance().evaluate(playerid1, playerid2);
+    boolean evaluate(String playerID1, String playerID2) {
+        return this.getNFLManagerInstance().evaluate(playerID1, playerID2);
     }
 
-    Team evaluateWinner(String playerid1, String playerid2) {
-        return this.getNFLManagerInstance().evaluateWinner(playerid1, playerid2);
+    Team evaluateWinner(String playerID1, String playerID2) {
+        return this.getNFLManagerInstance().evaluateWinner(playerID1, playerID2);
     }
 
     boolean removeTeam(String teamID) {
