@@ -15,7 +15,7 @@ public class NFLTradeMachine {
         System.out.println("Hello and welcome to the NFL Trade Machine!");
         System.out.println("--------------------------------------------\n");
         while (!input.equals("Exit") && !input.equals("exit")) {
-            System.out.println("Please enter one of the following commands: trade, getTeam, getPlayer, getPlayersFromTeam, addPlayerToTeam, exit");
+            System.out.println("Please enter one of the following commands: trade, getTeam, getPlayer, getPlayersFromTeam, addPlayerToTeam, reset, exit");
             input = scanner.nextLine();
             if (input.toLowerCase().equals("trade".toLowerCase())) {
             	trade();
@@ -29,6 +29,14 @@ public class NFLTradeMachine {
             
             if(input.toLowerCase().equals("getPlayer".toLowerCase())){
             	getPlayer();
+            }
+            
+            if(input.toLowerCase().equals("addPlayerToTeam".toLowerCase())){
+            	addPlayerToTeam();
+            }
+            
+            if(input.toLowerCase().equals("reset".toLowerCase())){
+            	nflManagerController.reset();
             }
         }
     }
@@ -162,4 +170,5 @@ public class NFLTradeMachine {
     	System.out.println(p.getName() + " successfully added to " + t.getName());
     	
     }
+    
 }
