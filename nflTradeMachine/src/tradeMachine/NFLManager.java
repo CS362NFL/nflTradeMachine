@@ -106,10 +106,10 @@ public class NFLManager {
     }
 
     public List<Player> searchPlayersByName(String name) {
-        List<Player> players = database.getPlayers();
-        for (Player p : players) {
-            if (!p.getName().contains(name))
-                players.remove(p);
+        List<Player> players = new ArrayList<Player>();
+        for (Player p : getPlayers()) {
+            if (p.getName().toLowerCase().contains(name.toLowerCase()))
+                players.add(p);
         }
         return players;
     }
