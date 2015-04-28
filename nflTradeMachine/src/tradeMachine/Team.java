@@ -144,6 +144,10 @@ public class Team {
 		}
 
 	}
+	
+	public boolean removePlayer(Player player) {
+		return players.remove(player);
+	}
 
 	/**
 	 * Gets the number of players on the team - the id of the team as a string
