@@ -29,6 +29,10 @@ public class NFLTradeMachine {
             if(input.toLowerCase().equals("getPlayer".toLowerCase())){
             	getPlayer();
             }
+            
+            if(input.toLowerCase().equals("createPlayer".toLowerCase())){
+            	createPlayer();
+            }
         }
     }
 
@@ -91,9 +95,18 @@ public class NFLTradeMachine {
     	System.out.println("Please enter the name of the player you wish to view: ");
     	String playerName = scanner.nextLine();
     	List<Player> players = nflManagerController.searchPlayersByName(playerName);
-    	System.out.println("Name\t\tPosition\tTeam\t\t\tAverage Cap Hit");
+    	System.out.println("Name\t\tPosition\tTeam\t\tAverage Cap Hit");
     	for(Player p: players){
-    		System.out.println(p.getName() + "\t" + p.getPosition() + "\t" + p.getTeam().getName() + "\t\t" + p.getAverageCapHit());
+    		String teamName = "";
+    		Team team = p.getTeam();
+    		if(team == null){
+    			teamName = "N/A";
+    		}
+    		else{
+    			teamName = p.getTeam().getName();
+    		}
+    		System.out.println(p.getName() + "\t" + p.getPosition() + "\t" + teamName + "\t\t" + p.getAverageCapHit());
+    		
     	}
     }
 
@@ -110,5 +123,22 @@ public class NFLTradeMachine {
                 }
             }
         }
+    }
+    
+    public static void createPlayer(){
+    	System.out.println("Please enter the name of the player you wish to create: ");
+    	String playerName = scanner.nextLine();
+    	System.out.println("Please enter the position of the player you wish to create: ");
+    	String pos = scanner.nextLine();
+    	boolean player = nflManagerController.createPlayer(playerName, pos);
+    	if(player){
+    		System.out.println("Congradulations! " + playerName + " has been successfully created");
+    	}
+    	else{
+    		System.out.println("Unfortantely, " + playerName + "could not be crated");
+    	}
+    	
+    	
+    	
     }
 }
