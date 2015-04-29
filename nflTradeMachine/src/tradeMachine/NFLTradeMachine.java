@@ -168,11 +168,11 @@ public class NFLTradeMachine {
 		String pos = scanner.nextLine();
 		boolean player = nflManagerController.createPlayer(playerName, pos);
 		if (player) {
-			System.out.println("Congradulations! " + playerName
+			System.out.println("Congratulations! " + playerName
 					+ " has been successfully created");
 		} else {
-			System.out.println("Unfortantely, " + playerName
-					+ "could not be crated");
+			System.out.println("Unfortunately, " + playerName
+					+ "could not be created");
 		}
 
 	}
